@@ -1,0 +1,85 @@
+basePath: /
+host: localhost:8000
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server for a resource manager.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Example API
+  version: "1.0"
+paths:
+  /:
+    get:
+      description: Welcome to the API
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Home
+  /api/v1/jira/projects:
+    get:
+      description: Показать все доступные проекты с поддержкой пагинации и поиска.
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Search
+        in: query
+        name: search
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: List Projects
+  /api/v1/jira/updateProject:
+    get:
+      description: Получает (или обновляет) все issues из проекта с ключом 'projectKey'
+        и заносит в базу данных.
+      parameters:
+      - description: Project Key
+        in: query
+        name: project
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Update Project
+swagger: "2.0"

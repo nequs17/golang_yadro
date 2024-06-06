@@ -27,7 +27,6 @@ import (
 
 // @host localhost:8000
 // @BasePath /
-
 func main() {
 	// Initialize Echo
 	e := echo.New()
