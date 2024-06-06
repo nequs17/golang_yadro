@@ -1,0 +1,14 @@
+port: "8000"
+resourceTimeout: 5
+analyticsTimeout: 15
+dbUser: "your_db_user"
+dbPassword: "your_db_password"
+dbHost: "localhost"
+dbPort: "5432"
+dbName: "your_db_name"
+jwtSecret: "your_jwt_secret"
+jiraUrl: "https://issues.apache.org/jira/"
+threadCount: 10
+issueInOneRequest: 50
+maxTimeSleep: 2000
+minTimeSleep: 100
